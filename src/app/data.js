@@ -92,30 +92,20 @@ export const projectsData = [
 export const BtnList = [
   { label: "Home", link: "/", icon: "home", newTab: false },
   { label: "About", link: "/about", icon: "about", newTab: false },
-  { label: "Projects", link: "/projects", icon: "projects", newTab: false },
   { label: "Contact", link: "/contact", icon: "contact", newTab: false },
+  { label: "Code", link: "/projects", icon: "code", newTab: false },
+  { label: "Illustration", link: "/illustration", icon: "illustration", newTab: false },
+  { label: "Animation", link: "/animation", icon: "animation", newTab: false },
   {
     label: "Github",
-    link: "https://www.github.com/codebucks27",
+    link: "https://www.github.com/TheErry",
     icon: "github",
     newTab: true,
   },
   {
     label: "LinkedIn",
-    link: "https://www.linkedin.com/in/codebucks",
+    link: "https://www.linkedin.com/in/erika-andersson-porath-5308a8113/",
     icon: "linkedin",
-    newTab: true,
-  },
-  {
-    label: "X",
-    link: "https://www.x.com/code_bucks",
-    icon: "twitter",
-    newTab: true,
-  },
-  {
-    label: "Resume",
-    link: "/resume.pdf",
-    icon: "resume",
     newTab: true,
   },
 ];

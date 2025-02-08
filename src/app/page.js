@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Navigation from "./Components/Navigation/Navigation";
+import Navigation from "../Components/Navigation/Navigation";
 import bg from "../../public/background/space-background.png";
-import RenderModel from "./Components/RenderModel";
-import { Castle } from "./Components/ModelComponents/Castle";
+import RenderModel from "../Components/RenderModel";
+import { Castle } from "../Components/ModelComponents/Castle";
 
 const Home = () =>{
   return (
