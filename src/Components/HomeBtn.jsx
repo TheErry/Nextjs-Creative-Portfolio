@@ -9,7 +9,7 @@ const HomeBtn = () => {
       aria-label={"home"}
       name={"home"}
       target={"_self"} 
-      className='text-foreground rounded-full flex items-center justify-center custom-bg fixed top-4 left-4 w-fit self-start'>
+      className='text-foreground rounded-full flex items-center justify-center custom-bg fixed top-4 left-4 w-fit self-start z-50'>
       <span className='relative w-14 h-14 p-4 hover:text-accent '>
         <HomeIcon className='w-full h-auto'strokeWidth={1.5}/>
         <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>
