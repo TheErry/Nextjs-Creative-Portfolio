@@ -24,17 +24,17 @@ const AboutDetails = () => {
             4+ <sub className='fomt-semibold text-base'>years of experience</sub>
           </p>
         </ItemLayout>
-        <ItemLayout className={"col-span-4 !p-0"}>
+        <ItemLayout className={"col-span-4 p-0!"}>
           <img className="w-full h-auto" src="https://github-readme-stats.vercel.app/api/top-langs?username=theerry&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false" alt='Erikas stats' loading='lazy'/>
         </ItemLayout>
-        <ItemLayout className={"col-span-8 !p-0"}>
+        <ItemLayout className={"col-span-8 p-0!"}>
           <img className="w-full h-auto" src="https://github-readme-stats.vercel.app/api?username=theerry&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false" alt='Erikas stats' loading='lazy'/>
         </ItemLayout>
         <ItemLayout className={"col-span-full"}>
           <img className="w-full h-auto" src="https://skillicons.dev/icons?i=js,html,css,ae,atom,babel,bash,blender,bootstrap,codepen,discord,docker,express,figma,firebase,gamemakerstudio,git,gitlab,heroku,ai,jenkins,kubernetes,less,linkedin,mongodb,netlify,nextjs,nodejs,npm,ps,postman,powershell,py,react,redux,stackoverflow,svg,tailwind,threejs,ts,vscode,yarn" alt='Erikas known programmes' loading='lazy'/>
         </ItemLayout>
-        <ItemLayout className={"col-span-6 !p-0"}>
-          <img className="w-full h-auto" src="https://github-readme-streak-stats.herokuapp.com?user=theerry&theme=dark&hide_border=true&type=svg&background=762A2A00&ring=FEFE5B" alt='Erikas streaks stats' loading='lazy'/>
+        <ItemLayout className={"col-span-6 p-0!"}>
+          <img className="w-full h-auto" src="https://github-readme-streak-stats.herokuapp.com?user=theerry&theme=dark&hide_border=true&type=svg&background=762A2A00&ring-3=FEFE5B" alt='Erikas streaks stats' loading='lazy'/>
         </ItemLayout>
         <ItemLayout className={"col-span-6"}>
           <img className="w-full h-auto" src="https://github-readme-stats.vercel.app/api/pin/?username=theerry&repo=snake_pygame&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false" alt='Erikas known programmes' loading='lazy'/>
