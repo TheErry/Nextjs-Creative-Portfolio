@@ -17,6 +17,7 @@ export function Castle(props) {
   useFrame((state) => {
     modelRef.current.position.y =
       -0.6 + Math.sin(state.clock.elapsedTime) * 0.15;
+    modelRef.current.rotation.y += -0.0007;
   });
   return (
     <group 
