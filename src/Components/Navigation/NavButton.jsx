@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import ResponsiveComponent from '../ResponsiveComponent';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 const getIcon = (icon) => {
   switch (icon) {
@@ -37,6 +38,12 @@ const getIcon = (icon) => {
   }
 };
 
+const item = {
+  hidden: { scale: 0 },
+  show: { scale: 1 }
+}
+
+const NavLink = motion(Link)
 
 const NavButton = ({x,
   y,
@@ -53,7 +60,8 @@ const NavButton = ({x,
       {({size}) => {
         return size && size >= 480 ? 
           <div className='absolute cursor-pointer z-50' style={{transform: `translate(${x}, ${y})`}}>
-            <Link 
+            <NavLink 
+            variants={item}
             href={link} 
             aria-label={label}
             name={label}
@@ -66,11 +74,12 @@ const NavButton = ({x,
                   {label}
                 </span>
               </span>
-            </Link>
+            </NavLink>
           </div>
         :
           <div className='cursor-pointer z-50'>
-            <Link 
+            <NavLink 
+            variants={item}
             href={link} 
             aria-label={label}
             name={label}
@@ -83,7 +92,7 @@ const NavButton = ({x,
                   {label}
                 </span>
               </span>
-            </Link>
+            </NavLink>
           </div>
       }}
 

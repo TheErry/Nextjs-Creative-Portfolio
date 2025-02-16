@@ -2,10 +2,17 @@
 import React from 'react'
 import Link from 'next/link'
 import { HomeIcon } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const NavLink = motion(Link)
+
 
 const HomeBtn = () => {
   return (
-    <Link 
+    <NavLink 
+      initial={{scale: 0}}
+      animate={{scale: 1}}
+      transition={{delay: 1.5}}
       href={"/"} 
       aria-label={"home"}
       name={"home"}
@@ -18,7 +25,7 @@ const HomeBtn = () => {
           Home
         </span>
       </span>
-    </Link>
+    </NavLink>
   )
 }
 
