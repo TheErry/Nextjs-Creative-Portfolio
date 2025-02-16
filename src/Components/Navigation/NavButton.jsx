@@ -10,6 +10,8 @@ import {
   Keyboard,
   User,
 } from "lucide-react";
+import ResponsiveComponent from '../ResponsiveComponent';
+import clsx from 'clsx';
 
 const getIcon = (icon) => {
   switch (icon) {
@@ -41,26 +43,52 @@ const NavButton = ({x,
   label,
   link,
   icon,
-  newTab}) => {
+  newTab,
+  labelDirection = "right",
+}) => {
 
   return (
-    <div className='absolute cursor-pointer z-50' style={{transform: `translate(${x}, ${y})`}}
-    >
-      <Link 
-      href={link} 
-      aria-label={label}
-      name={label}
-      target={newTab ? "_blank" : "_self"} 
-      className='text-foreground rounded-full flex items-center justify-center custom-bg'>
-        <span className='relative w-14 h-14 p-4 animate-spin-slow-reverse hover:text-accent group-hover:pause'>
-          {getIcon(icon)}
-          <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>
-          <span className='absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/3 -translate-y-1 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap'>
-            {label}
-          </span>
-        </span>
-      </Link>
-    </div>
+    <ResponsiveComponent>
+
+      {({size}) => {
+        return size && size >= 480 ? 
+          <div className='absolute cursor-pointer z-50' style={{transform: `translate(${x}, ${y})`}}>
+            <Link 
+            href={link} 
+            aria-label={label}
+            name={label}
+            target={newTab ? "_blank" : "_self"} 
+            className='text-foreground rounded-full flex items-center justify-center custom-bg'>
+              <span className='relative w-14 h-14 p-4  animate-spin-slow-reverse hover:text-accent group-hover:pause'>
+                {getIcon(icon)}
+                <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>
+                <span className='absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/3 -translate-y-1 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap'>
+                  {label}
+                </span>
+              </span>
+            </Link>
+          </div>
+        :
+          <div className='cursor-pointer z-50'>
+            <Link 
+            href={link} 
+            aria-label={label}
+            name={label}
+            target={newTab ? "_blank" : "_self"} 
+            className='text-foreground rounded-full flex items-center justify-center custom-bg'>
+              <span className='relative xs:w-14 xs:h-14 w-12 h-12 xs:p-4 p-2.5 hover:text-accent '>
+                {getIcon(icon)}
+                <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>
+                <span className={clsx('absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/3 -translate-y-1 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap', labelDirection === "left" ? "right-full left-auto" : "")}>
+                  {label}
+                </span>
+              </span>
+            </Link>
+          </div>
+      }}
+
+      
+    </ResponsiveComponent>
   )
 }
 

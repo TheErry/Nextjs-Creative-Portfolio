@@ -4,7 +4,7 @@ import ProjectLayout from './ProjectLayout'
 
 const ProjectList = ({projects}) => {
   return (
-    <div className='flex flex-col items-center justify-center space-y-8 px-16 max-w-4x1 w-full h-screen py-16 my-10'>
+    <div className='w-full max-w-auto  xl:max-w-4xl px-4 mx-auto lg:px-16 space-y-6 md:space-y-8 flex flex-col items-center'>
       {projects.map((project, index) => {
         return <ProjectLayout key={index} {...project} />
       })}

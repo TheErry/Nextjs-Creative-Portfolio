@@ -12,7 +12,7 @@ const Home = () =>{
           sizes="100vw"
           src={bg}
           alt="Background image"
-          className="-z-50 object-cover object-center opacity-90 fixed top-0 left-0"
+          className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-90"
         />
       <ProjectList projects={projectsData}/>
     </>

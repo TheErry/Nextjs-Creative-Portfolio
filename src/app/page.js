@@ -6,7 +6,7 @@ import { Castle } from "../Components/ModelComponents/Castle";
 
 const Home = () =>{
   return (
-    <main className="flex min-h-screen flex-col justify-between relative">
+    <main className="flex min-h-screen flex-col justify-between items-center relative">
       <Image 
         priority
         sizes="100vw"

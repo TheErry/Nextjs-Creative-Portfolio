@@ -11,12 +11,12 @@ const About = () =>{
           sizes="100vw"
           src={bg}
           alt="Background image"
-          className="-z-50 object-cover object-center opacity-90 fixed top-0 left-0"
+          className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-90"
         />
 
         <div className="flex flex-col items-center w-full relative">
-          <div className="flex flex-col items-center tect-center top-[30%] left-1/2">
-            <h1 className="font-bold text-9xl text-accent">Erika A. Porath</h1>
+          <div className="flex flex-col items-center tect-center top-1/2 sm:top-[30%] left-1/2">
+            <h1 className="font-bold text-6xl text-accent xs:text-7xl sm:text-8xl lg:text-9xl">Erika A. Porath</h1>
             <p className="font-light text-foreground text-ls">Frontend developer, game designer and animator</p>
           </div>
         </div>
