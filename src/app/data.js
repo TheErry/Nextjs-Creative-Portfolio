@@ -55,7 +55,7 @@ export const projectsData = [
   {
     id: 6,
     name: "Old portfolio",
-    description: "My precious portfolio",
+    description: "My previous portfolio",
     date: "2021-07-11",
     demoLink: "https://github.com/TheErry/portfolio",
   },
@@ -90,23 +90,25 @@ export const projectsData = [
 ];
 
 export const BtnList = [
-  { label: "Home", link: "/", icon: "home", newTab: false },
-  { label: "About", link: "/about", icon: "about", newTab: false },
-  { label: "Contact", link: "/contact", icon: "contact", newTab: false },
-  { label: "Code", link: "/projects", icon: "code", newTab: false },
-  { label: "Illustration", link: "/illustration", icon: "illustration", newTab: false },
-  { label: "Animation", link: "/animation", icon: "animation", newTab: false },
+  { label: "Home", link: "/", icon: "home", newTab: false, disabled: false },
+  { label: "About", link: "/about", icon: "about", newTab: false, disabled: false },
+  { label: "Contact", link: "/contact", icon: "contact", newTab: false, disabled: false },
+  { label: "Code", link: "/projects", icon: "code", newTab: false, disabled: false },
+  { label: "Games", link: "/games", icon: "games", newTab: false, disabled: true },
+  { label: "Animation", link: "/animation", icon: "animation", newTab: false, disabled: true },
   {
     label: "Github",
     link: "https://www.github.com/TheErry",
     icon: "github",
     newTab: true,
+    disabled: false
   },
   {
     label: "LinkedIn",
     link: "https://www.linkedin.com/in/erika-andersson-porath-5308a8113/",
     icon: "linkedin",
     newTab: true,
+    disabled: false
   },
 ];
 

@@ -7,21 +7,20 @@ const AboutDetails = () => {
       <div className='grid grid-cols-12 gap-4 xs:gap-6 md:gap-8 w-full'>
         <ItemLayout className={"col-span-full lg:col-span-8 row-span-2 flex-col items-start"}>
           <h2 className='text-xl md:text-2xl text-left w-full capitalize'>
-            A Juggler
+            Wanna make games?
           </h2>
           <p className='font-light text-xs sm:text-sm md:text-base'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repudiandae, ad delectus praesentium quaerat magni dolorum 
-            enim perspiciatis alias ducimus ullam error. Harum similique mollitia illum quos dicta placeat dolores?
+          I am a passionate frontend developer, game developer, and animator, blending creativity with technology to craft engaging digital experiences. With a strong eye for design and smooth interactions, I build intuitive user interfaces, immersive games, and dynamic animations that bring ideas to life. Whether it’s coding responsive web applications, developing interactive games, or animating fluid motion graphics, I thrive on creating visually stunning and functional experiences
           </p>
         </ItemLayout>
         <ItemLayout className={"lg:col-span-4 xs:col-span-6 col-span-full"}>
           <p className='font-semibold w-full text-left sm:text-5xl text-2xl text-accent flex lg:items-center md:items-center sm:items-center'>
-            25+ <sub className='font-semibold text-base mx-2'>clients</sub>
+            +4 <sub className='font-semibold text-base mx-2'>years of frontend</sub>
           </p>
         </ItemLayout>
         <ItemLayout className={"lg:col-span-4 xs:col-span-6 col-span-full"}>
           <p className='font-semibold w-full text-left sm:text-5xl text-2xl text-accent flex lg:items-center md:items-center sm:items-center'>
-            4+ <sub className='font-semibold text-base mx-2'>years of experience</sub>
+            +7 <sub className='font-semibold text-base mx-2'>years of games</sub>
           </p>
         </ItemLayout>
         <ItemLayout className={"col-span-full sm:col-span-full md:col-span-4 p-0!"}>

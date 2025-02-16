@@ -5,7 +5,7 @@ import {
   Home,
   Linkedin,
   Play,
-  Palette,
+  Gamepad2,
   Phone,
   Keyboard,
   User,
@@ -28,8 +28,8 @@ const getIcon = (icon) => {
       return <Github className="w-full h-auto" strokeWidth={1.5} />;
     case "linkedin":
       return <Linkedin className="w-full h-auto" strokeWidth={1.5} />;
-    case "illustration":
-      return <Palette className="w-full h-auto" strokeWidth={1.5} />;
+    case "games":
+      return <Gamepad2 className="w-full h-auto" strokeWidth={1.5} />;
     case "animation":
       return <Play className="w-full h-auto" strokeWidth={1.5} />;
 
@@ -52,6 +52,7 @@ const NavButton = ({x,
   icon,
   newTab,
   labelDirection = "right",
+  disabled
 }) => {
 
   return (
@@ -66,7 +67,7 @@ const NavButton = ({x,
             aria-label={label}
             name={label}
             target={newTab ? "_blank" : "_self"} 
-            className='text-foreground rounded-full flex items-center justify-center custom-bg'>
+            className={clsx('text-foreground rounded-full flex items-center justify-center custom-bg', disabled ? "pointer-events-none opacity-40" : "")}>
               <span className='relative w-14 h-14 p-4  animate-spin-slow-reverse hover:text-accent group-hover:pause'>
                 {getIcon(icon)}
                 <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>
@@ -84,7 +85,7 @@ const NavButton = ({x,
             aria-label={label}
             name={label}
             target={newTab ? "_blank" : "_self"} 
-            className='text-foreground rounded-full flex items-center justify-center custom-bg'>
+            className={clsx("text-foreground rounded-full flex items-center justify-center custom-bg", disabled ? "pointer-events-none opacity-40" : "")}>
               <span className='relative xs:w-14 xs:h-14 w-12 h-12 xs:p-4 p-2.5 hover:text-accent '>
                 {getIcon(icon)}
                 <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>

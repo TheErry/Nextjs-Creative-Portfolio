@@ -1,18 +1,26 @@
 
+# This is my new portfolio! Check it out!
 
-This repository contains **starter code** for Next.js Creative Portfolio website built using Next.js and Three.js. <br />
+#### Things left to do:
+- Create game projects and animation pages
+- Add audio
+- Look over the code once more
 
+For deployed site follow this link👇: <br />
+[Portfolio](https://portfolio-erika-a-porath.netlify.app/) <br />
 
 ## Resources Used in This Project
 
+This repository contains **starter code** for Next.js Creative Portfolio website built using Next.js and Three.js from [Codebucks](https://github.com/codebucks27/Nextjs-Creative-Portfolio-Starter-Code-Files)  <br />
+
 #### 3D Models
 
-- ["Tim Mckee - Boy Wizard"](https://skfb.ly/6YATu) by [elbertwithane is licensed under Creative Commons Attribution ](http://creativecommons.org/licenses/by/4.0/).
+- ["adamnsexyname - Floating Castle"](https://sketchfab.com/3d-models/floating-castle-4ce6c8831c1c4daa80b412a61a97bf3c) by [elbertwithane is licensed under Creative Commons Attribution ](http://creativecommons.org/licenses/by/4.0/).
 
 
-#### AI Images
+#### Background images
 
-- Created with the help of [Playground AI](https://playgroundai.com/)
+- Found here: [Freepik](https://www.freepik.com/free-vector/stars-universe_9436976.htm#fromView=keyword&page=1&position=7&uuid=3e905ecf-0bb6-4e39-85bd-a36ccffb6fa2&query=Space+Background)
 
 #### Github Stats & Details
 

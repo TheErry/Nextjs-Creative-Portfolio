@@ -17,7 +17,7 @@ const Contact = () =>{
         <article className="relative w-full flex flex-col items-center justify-center space-y-8 py-8 sm:py-0">
           <div className="flex flex-col items-center justify-center space-y-6 w-full sm:w-3/4">
             <h1 className="text-accent font-semibold text-center text-4xl capitalize">Contact</h1>
-            <p className="text-center font-light text-foreground text-sm xs:text-base">Feel free to reach out to me!</p>
+            <p className="text-center font-light text-foreground text-sm xs:text-base">Got a project? A question? A secret treasure map? Hit me up!</p>
           </div>
           <Form />
         </article>
