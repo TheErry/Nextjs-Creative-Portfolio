@@ -3,7 +3,9 @@
 
 #### Things left to do:
 - Create game projects and animation pages
-- Add audio
+- Change project list to cards
+- Fix labels on homepage in the mobile version
+- Add audio?
 - Look over the code once more
 
 For deployed site follow this link👇: <br />

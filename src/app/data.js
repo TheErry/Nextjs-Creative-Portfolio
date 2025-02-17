@@ -90,26 +90,59 @@ export const projectsData = [
 ];
 
 export const BtnList = [
-  { label: "Home", link: "/", icon: "home", newTab: false, disabled: false },
-  { label: "About", link: "/about", icon: "about", newTab: false, disabled: false },
-  { label: "Contact", link: "/contact", icon: "contact", newTab: false, disabled: false },
-  { label: "Code", link: "/projects", icon: "code", newTab: false, disabled: false },
-  { label: "Games", link: "/games", icon: "games", newTab: false, disabled: true },
-  { label: "Animation", link: "/animation", icon: "animation", newTab: false, disabled: true },
+  { 
+    label: "Home",
+    link: "/",
+    icon: "home",
+    newTab: false,
+    disabled: false },
+  {
+    label: "About",
+    link: "/about",
+    icon: "about",
+    newTab: false,
+    disabled: false,
+  },
+  {
+    label: "Contact",
+    link: "/contact",
+    icon: "contact",
+    newTab: false,
+    disabled: false,
+  },
+  {
+    label: "Code",
+    link: "/projects",
+    icon: "code",
+    newTab: false,
+    disabled: false,
+  },
+  {
+    label: "Games",
+    link: "/games",
+    icon: "games",
+    newTab: false,
+    disabled: true,
+  },
+  {
+    label: "Animation",
+    link: "/animation",
+    icon: "animation",
+    newTab: false,
+    disabled: true,
+  },
   {
     label: "Github",
     link: "https://www.github.com/TheErry",
     icon: "github",
     newTab: true,
-    disabled: false
+    disabled: false,
   },
   {
     label: "LinkedIn",
     link: "https://www.linkedin.com/in/erika-andersson-porath-5308a8113/",
     icon: "linkedin",
     newTab: true,
-    disabled: false
+    disabled: false,
   },
 ];
-
-

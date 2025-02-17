@@ -4,10 +4,10 @@ import bg from "../../public/background/space-background.png";
 import RenderModel from "../Components/RenderModel";
 import { Castle } from "../Components/ModelComponents/Castle";
 
-const Home = () =>{
+const Home = () => {
   return (
     <main className="flex min-h-screen flex-col justify-between items-center relative">
-      <Image 
+      <Image
         priority
         sizes="100vw"
         src={bg}
@@ -23,6 +23,6 @@ const Home = () =>{
       </div>
     </main>
   );
-}
+};
 
 export default Home;

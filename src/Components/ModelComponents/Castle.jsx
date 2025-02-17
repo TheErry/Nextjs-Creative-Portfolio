@@ -5,13 +5,13 @@ License: CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
 Source: https://sketchfab.com/3d-models/floating-castle-4ce6c8831c1c4daa80b412a61a97bf3c
 Title: floating castle
 */
-"use client"
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
+"use client";
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export function Castle(props) {
-  const { nodes, materials } = useGLTF('/3D-models/castle-transformed.glb')
+  const { nodes, materials } = useGLTF("/3D-models/castle-transformed.glb");
   const modelRef = useRef();
 
   useFrame((state) => {
@@ -20,8 +20,8 @@ export function Castle(props) {
     modelRef.current.rotation.y += -0.0007;
   });
   return (
-    <group 
-      {...props} 
+    <group
+      {...props}
       dispose={null}
       ref={modelRef}
       position={[0, -1.5, 0]}
@@ -32,7 +32,7 @@ export function Castle(props) {
         castShadow
         receiveShadow
         geometry={nodes.Object_3.geometry}
-        material={materials['Material.031']}
+        material={materials["Material.031"]}
         position={[-2.215, -3.732, 1.697]}
         rotation={[-Math.PI / 2, 0, 0]}
         scale={0.38}
@@ -41,13 +41,13 @@ export function Castle(props) {
         castShadow
         receiveShadow
         geometry={nodes.Object_4.geometry}
-        material={materials['Material.030']}
+        material={materials["Material.030"]}
         position={[-2.215, -3.732, 1.697]}
         rotation={[-Math.PI / 2, 0, 0]}
         scale={0.38}
       />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/3D-models/castle-transformed.glb')
+useGLTF.preload("/3D-models/castle-transformed.glb");
