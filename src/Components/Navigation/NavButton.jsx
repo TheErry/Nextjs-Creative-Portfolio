@@ -9,6 +9,7 @@ import {
   Phone,
   Keyboard,
   User,
+  Brush
 } from "lucide-react";
 import ResponsiveComponent from "../ResponsiveComponent";
 import clsx from "clsx";
@@ -20,16 +21,18 @@ const getIcon = (icon) => {
       return <Home className="w-full h-auto" strokeWidth={1.5} />;
     case "about":
       return <User className="w-full h-auto" strokeWidth={1.5} />;
-    case "code":
-      return <Keyboard className="w-full h-auto" strokeWidth={1.5} />;
+    case "artstation":
+      return <Brush className="w-full h-auto" strokeWidth={1.5} />;
     case "contact":
       return <Phone className="w-full h-auto" strokeWidth={1.5} />;
     case "github":
       return <Github className="w-full h-auto" strokeWidth={1.5} />;
     case "linkedin":
       return <Linkedin className="w-full h-auto" strokeWidth={1.5} />;
+    case "coming":
     case "games":
       return <Gamepad2 className="w-full h-auto" strokeWidth={1.5} />;
+    case "work":
     case "animation":
       return <Play className="w-full h-auto" strokeWidth={1.5} />;
 
@@ -45,6 +48,9 @@ const item = {
 
 const NavLink = motion(Link);
 
+const navLinkClass =
+  "text-foreground rounded-full flex items-center justify-center custom-bg hover:text-accent";
+
 const NavButton = ({
   x,
   y,
@@ -53,7 +59,6 @@ const NavButton = ({
   icon,
   newTab,
   labelDirection = "right",
-  disabled,
 }) => {
   return (
     <ResponsiveComponent>
@@ -69,10 +74,7 @@ const NavButton = ({
               aria-label={label}
               name={label}
               target={newTab ? "_blank" : "_self"}
-              className={clsx(
-                "text-foreground rounded-full flex items-center justify-center custom-bg",
-                disabled ? "pointer-events-none opacity-40" : ""
-              )}
+              className={navLinkClass}
             >
               <span className="relative w-14 h-14 p-4  animate-spin-slow-reverse hover:text-accent group-hover:pause">
                 {getIcon(icon)}
@@ -91,12 +93,9 @@ const NavButton = ({
               aria-label={label}
               name={label}
               target={newTab ? "_blank" : "_self"}
-              className={clsx(
-                "text-foreground rounded-full flex items-center justify-center custom-bg",
-                disabled ? "pointer-events-none opacity-40" : ""
-              )}
+              className={navLinkClass}
             >
-              <span className="relative xs:w-14 xs:h-14 w-12 h-12 xs:p-4 p-2.5 hover:text-accent ">
+              <span className="relative xs:w-14 xs:h-14 w-12 h-12 xs:p-4 p-2.5">
                 {getIcon(icon)}
                 <span className="peer bg-transparent absolute top-0 left-0 w-full h-full" />
                 <span

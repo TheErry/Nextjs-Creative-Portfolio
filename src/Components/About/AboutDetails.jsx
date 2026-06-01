@@ -1,10 +1,94 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import ItemLayout from "./ItemLayout";
+
+const FireAnimation = dynamic(() => import("./FireAnimation"), {
+  ssr: false,
+  loading: () => <div className="h-64 w-64" aria-hidden />,
+});
+
+const storySectionClass = "min-h-[70vh] flex items-center justify-center py-10";
+
+const StorySection = ({ children }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <section className={storySectionClass}>{children}</section>;
+  }
+
+  return (
+    <motion.section
+      className={storySectionClass}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{
+        once: false,
+        amount: 0.2,
+        margin: "-30% 0px -30% 0px",
+      }}
+      transition={{ duration: 0.65, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.section>
+  );
+};
+
+const StorySpacer = () => <div aria-hidden className="h-[18vh] shrink-0" />;
 
 const AboutDetails = () => {
   return (
-    <section className="py-20 w-full">
-      <div className="grid grid-cols-12 gap-4 xs:gap-6 md:gap-8 w-full">
+    <section className="py-20 w-full max-w-3xl mx-auto">
+      <div className="flex flex-col">
+        <StorySection>
+          <p className="font-light text-xl sm:text-xl md:text-2xl">
+            Want to hear my story? Well sit down by the fire and I’ll tell you.
+          </p>
+        </StorySection>
+        <StorySpacer />
+        <StorySection>
+          <p className="font-light text-xl sm:text-base md:text-2xl">
+            I've been building worlds since before I knew what to call it.
+            As a kid, I filled notebooks with characters, stories, and maps of places that didn't exist yet.
+            And honestly, not much has changed. The notebooks are digital now, and some of the worlds are still there.
+          </p>
+        </StorySection>
+        <StorySpacer />
+        <StorySection>
+          <p className="font-light text-xl sm:text-base md:text-2xl">
+            My own path here has never been a straight line.
+            It started with game design and animation on Gotland, and then it led to film and scriptwriting in London, then later came back to game development,
+            which also expanded to include programming. Code, animation, film, scripts, comics, illustrations. The medium never matters if as long as I get to create.
+          </p>
+        </StorySection>
+        <StorySpacer />
+        <StorySection>
+          <p className="font-light text-xl sm:text-base md:text-2xl">
+            My stories often have a very humorous foundation, with the occasional tragic gut punch. goal is to make people laugh, make people cry,
+            make them feel something they won't forget.
+            And a fair warning; I have a deep and slightly alarming love for unexpected endings. The kind that recontextualizes everything before them.
+            The tragic ones especially. If I ever recommend you a film, a book, or a series... maybe keep some tissues nearby. You've been warned.
+          </p>
+        </StorySection>
+        <StorySpacer />
+        <StorySection>
+          <p className="font-light text-xl sm:text-base md:text-2xl">
+            These days I work at the intersection of game development, animation, and storytelling,
+            and with a technical toolkit that's grown considerably messier and more interesting over the years.
+            Find me by the computer, over the drawing pad, in the corner with a guitar, on a park bench with a notebook in hand,
+            on the train listening to my fellow travellers’ stories. What drives me isn’t any title, it’s the love of creation.
+          </p>
+        </StorySection>        
+        <div className="relative w-80 mx-auto">
+          <FireAnimation />
+        </div>
+        {/*  
         <ItemLayout
           className={
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
@@ -82,6 +166,7 @@ const AboutDetails = () => {
             loading="lazy"
           />
         </ItemLayout>
+        */}
       </div>
     </section>
   );
