@@ -54,8 +54,8 @@ const AboutDetails = () => {
         <StorySpacer />
         <StorySection>
           <p className="font-light text-xl sm:text-base md:text-2xl">
-            I've been building worlds since before I knew what to call it.
-            As a kid, I filled notebooks with characters, stories, and maps of places that didn't exist yet.
+            {"I've been building worlds since before I knew what to call it."}
+            {"As a kid, I filled notebooks with characters, stories, and maps of places that didn't exist yet."}
             And honestly, not much has changed. The notebooks are digital now, and some of the worlds are still there.
           </p>
         </StorySection>
@@ -70,17 +70,17 @@ const AboutDetails = () => {
         <StorySpacer />
         <StorySection>
           <p className="font-light text-xl sm:text-base md:text-2xl">
-            My stories often have a very humorous foundation, with the occasional tragic gut punch. goal is to make people laugh, make people cry,
-            make them feel something they won't forget.
+            My stories often have a very humorous foundation, with the occasional tragic gut punch. My goal is to make people laugh, make people cry,
+            {"make them feel something they won't forget."}
             And a fair warning; I have a deep and slightly alarming love for unexpected endings. The kind that recontextualizes everything before them.
-            The tragic ones especially. If I ever recommend you a film, a book, or a series... maybe keep some tissues nearby. You've been warned.
+            {"The tragic ones especially. If I ever recommend you a film, a book, or a series... maybe keep some tissues nearby. You've been warned."}
           </p>
         </StorySection>
         <StorySpacer />
         <StorySection>
           <p className="font-light text-xl sm:text-base md:text-2xl">
             These days I work at the intersection of game development, animation, and storytelling,
-            and with a technical toolkit that's grown considerably messier and more interesting over the years.
+            {"and with a technical toolkit that's grown considerably messier and more interesting over the years."}
             Find me by the computer, over the drawing pad, in the corner with a guitar, on a park bench with a notebook in hand,
             on the train listening to my fellow travellers’ stories. What drives me isn’t any title, it’s the love of creation.
           </p>
