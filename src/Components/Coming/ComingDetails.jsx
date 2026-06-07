@@ -7,7 +7,7 @@ import Image from "next/image";
 const ComingDetails = () => {
   return (
     <section className="py-20 w-full max-w-3xl mx-auto">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-8 w-full">
       <h1 className="text-4xl md:text-5xl w-full capitalize text-accent text-center py-10">
           In development
         </h1>

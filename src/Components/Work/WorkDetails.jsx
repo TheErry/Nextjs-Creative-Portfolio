@@ -7,13 +7,13 @@ import ImageGallery from "@/Components/Work/ImageGallery";
 const WorkDetails = () => {
   return (
     <section className="py-20 w-full max-w-3xl mx-auto">
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col gap-8 w-full">
         <h1 className="text-4xl md:text-5xl w-full capitalize text-accent text-center py-10">
           Previous work
         </h1>
         <ItemLayout
           className={
-            "col-span-full lg:col-span-8 row-span-2 flex-col items-start margin-bottom-10"
+            "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
           <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
@@ -44,7 +44,7 @@ const WorkDetails = () => {
         </ItemLayout>
         <ItemLayout
           className={
-            "col-span-full lg:col-span-8 row-span-2 flex-col items-start margin-bottom-10"
+            "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
           <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
@@ -68,7 +68,7 @@ const WorkDetails = () => {
         </ItemLayout>
         <ItemLayout
           className={
-            "col-span-full lg:col-span-8 row-span-2 flex-col items-start margin-bottom-10"
+            "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
           <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
@@ -106,7 +106,7 @@ const WorkDetails = () => {
         </ItemLayout>
         <ItemLayout
           className={
-            "col-span-full lg:col-span-8 row-span-2 flex-col items-start margin-bottom-10"
+            "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
           <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
@@ -185,6 +185,52 @@ const WorkDetails = () => {
             >
               Thunderkick
             </a>
+          </p>
+        </ItemLayout>
+        <ItemLayout
+          className={
+            "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
+          }
+        >
+          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+            Uppsala University
+          </h2>
+          <p className="font-light text-xs sm:text-sm md:text-base">
+            {"I was hired as a graphic designer and made graphics and videos for the game development department and the Gotland Game Conference. This included graphics for the website as well as printed materials like roll ups, pamphlets, lanyards and posters."}
+          </p>
+          <ImageGallery
+            images={[
+              {
+                src: "/assets/3wildos.png",
+                alt: "3 Wildos screenshot",
+              },
+            ]}
+          />
+          <p>
+            Images and videos to come.
+          </p>
+        </ItemLayout>
+        <ItemLayout
+          className={
+            "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
+          }
+        >
+          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+            Swedish Game Awards
+          </h2>
+          <p className="font-light text-xs sm:text-sm md:text-base">
+            {"I was hired as a video editor for the Swedish Game Awards."}
+          </p>
+          <ImageGallery
+            images={[
+              {
+                src: "/assets/3wildos.png",
+                alt: "3 Wildos screenshot",
+              },
+            ]}
+          />
+          <p>
+            Videos to come.
           </p>
         </ItemLayout>
       </div>
