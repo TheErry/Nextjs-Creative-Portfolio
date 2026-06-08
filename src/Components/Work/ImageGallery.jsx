@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
@@ -41,7 +42,12 @@ const normalizeMedia = (media, images) => {
 const ImageGallery = ({ media, images, className = "" }) => {
   const items = useMemo(() => normalizeMedia(media, images), [media, images]);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [mounted, setMounted] = useState(false);
   const isOpen = selectedIndex !== null;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const close = useCallback(() => setSelectedIndex(null), []);
 
@@ -119,91 +125,95 @@ const ImageGallery = ({ media, images, className = "" }) => {
         ))}
       </div>
 
-      <AnimatePresence>
-        {isOpen && selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8"
-            onClick={close}
-            role="dialog"
-            aria-modal="true"
-            aria-label={selected.alt}
-          >
-            <button
-              type="button"
-              onClick={close}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full border border-accent/30 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
-              aria-label="Close gallery"
-            >
-              <X size={24} />
-            </button>
-
-            {items.length > 1 && (
-              <>
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {isOpen && selected && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 pt-16 pb-12 sm:p-8 sm:pt-20 sm:pb-16"
+                onClick={close}
+                role="dialog"
+                aria-modal="true"
+                aria-label={selected.alt}
+              >
                 <button
                   type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    goPrev();
-                  }}
-                  className="absolute left-2 sm:left-6 z-10 p-2 rounded-full border border-accent/30 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
-                  aria-label="Previous item"
+                  onClick={close}
+                  className="absolute top-4 right-4 z-10 p-2 rounded-full border border-accent/30 bg-black/50 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
+                  aria-label="Close gallery"
                 >
-                  <ChevronLeft size={28} />
+                  <X size={24} />
                 </button>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    goNext();
-                  }}
-                  className="absolute right-2 sm:right-6 z-10 p-2 rounded-full border border-accent/30 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
-                  aria-label="Next item"
+
+                {items.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goPrev();
+                      }}
+                      className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full border border-accent/30 bg-black/50 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
+                      aria-label="Previous item"
+                    >
+                      <ChevronLeft size={28} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goNext();
+                      }}
+                      className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full border border-accent/30 bg-black/50 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
+                      aria-label="Next item"
+                    >
+                      <ChevronRight size={28} />
+                    </button>
+                  </>
+                )}
+
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative w-full h-full max-w-[min(100%,1200px)] max-h-[calc(100dvh-8rem)] flex items-center justify-center"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <ChevronRight size={28} />
-                </button>
-              </>
-            )}
+                  {selected.type === "video" ? (
+                    <iframe
+                      src={withAutoplay(selected.src)}
+                      title={selected.alt}
+                      className="w-full aspect-video max-h-[calc(100dvh-8rem)] rounded-lg"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <Image
+                      src={selected.src}
+                      alt={selected.alt}
+                      width={1200}
+                      height={800}
+                      className="w-auto h-auto max-w-full max-h-[calc(100dvh-8rem)] object-contain rounded-lg"
+                      priority
+                    />
+                  )}
+                </motion.div>
 
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative max-w-[min(100%,1200px)] max-h-[85vh] w-full flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {selected.type === "video" ? (
-                <iframe
-                  src={withAutoplay(selected.src)}
-                  title={selected.alt}
-                  className="w-full aspect-video max-h-[85vh] rounded-lg"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              ) : (
-                <Image
-                  src={selected.src}
-                  alt={selected.alt}
-                  width={1200}
-                  height={800}
-                  className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-lg"
-                  priority
-                />
-              )}
-            </motion.div>
-
-            {items.length > 1 && (
-              <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-muted font-light">
-                {selectedIndex + 1} / {items.length}
-              </p>
+                {items.length > 1 && (
+                  <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-muted font-light">
+                    {selectedIndex + 1} / {items.length}
+                  </p>
+                )}
+              </motion.div>
             )}
-          </motion.div>
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </>
   );
 };

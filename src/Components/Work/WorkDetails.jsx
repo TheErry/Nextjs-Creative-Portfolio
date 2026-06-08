@@ -8,7 +8,12 @@ const roleMetaClass = "font-semibold text-xs sm:text-sm md:text-base";
 
 const WorkDetails = () => {
   return (
-    <section className="py-20 w-full max-w-3xl mx-auto">
+    <>
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-40 bg-black/40"
+      />
+      <section className="py-20 w-full max-w-3xl mx-auto">
       <div className="flex flex-col gap-8 w-full">
         <h1 className="text-4xl md:text-5xl w-full capitalize text-accent text-center py-10">
           Previous work
@@ -313,6 +318,7 @@ const WorkDetails = () => {
         </ItemLayout>
       </div>
     </section>
+    </>
   );
 };
 
