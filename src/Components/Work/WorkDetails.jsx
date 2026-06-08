@@ -4,6 +4,8 @@ import React from "react";
 import ItemLayout from "@/Components/About/ItemLayout";
 import ImageGallery from "@/Components/Work/ImageGallery";
 
+const roleMetaClass = "font-semibold text-xs sm:text-sm md:text-base";
+
 const WorkDetails = () => {
   return (
     <section className="py-20 w-full max-w-3xl mx-auto">
@@ -16,14 +18,19 @@ const WorkDetails = () => {
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Thunderkick
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Thunderkick
+            </h2>
+            <p className={roleMetaClass}>
+              {"Game developer | August 2025 - Present"}
+            </p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
             {"Game client developer on the frontend team, building and maintaining interactive casino games using the company's proprietary engine. My role spans gameplay implementation, Spine animation integration, particle effects, and internal AI tooling. Most work is under NDA — but 3 Wildos is live and playable"}
           </p>
           <ImageGallery
-            images={[
+            media={[
               {
                 src: "/assets/3wildos.png",
                 alt: "3 Wildos screenshot",
@@ -47,9 +54,14 @@ const WorkDetails = () => {
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Svenska Spel
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Svenska Spel
+            </h2>
+            <p className={roleMetaClass}>
+              {"Software developer | March 2022 - March 2025"}
+            </p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
             Worked on online lottery products and iGaming titles, primarily Triss
             and the digital Christmas calendars. Built dynamic animations with
@@ -57,23 +69,41 @@ const WorkDetails = () => {
             up by the LEIA project group
           </p>
           <ImageGallery
-            images={[
+            media={[
+              { type: "image", src: "/assets/svenskaspel1.png", alt: "Svenska Spel screenshot 1" },
+              { type: "image", src: "/assets/svenskaspel2.png", alt: "Svenska Spel screenshot 2" },
+              { type: "image", src: "/assets/svenskaspel3.png", alt: "Svenska Spel screenshot 3" },
+              { type: "image", src: "/assets/svenskaspel4.png", alt: "Svenska Spel screenshot 4" },
+              { type: "image", src: "/assets/svenskaspel5.png", alt: "Svenska Spel screenshot 5" },
               {
-                src: "/assets/3wildos.png",
-                alt: "Svenska Spel screenshot",
+                type: "video",
+                src: "https://www.youtube.com/embed/9h3kwbOevaE",
+                alt: "Svenska Spel trailer",
               },
             ]}
           />
-          <p>Some games can still be found on Svenska Spels web page</p>
+          <p>Some games can still be found on Svenska Spels web page:{" "}
+          <a
+              className="text-accent"
+              href="https://www.svenskaspel.se/tur?refs=vattendelaren"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Turspel
+            </a>
+          </p>
         </ItemLayout>
         <ItemLayout
           className={
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Walkabout
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Walkabout
+            </h2>
+            <p className={roleMetaClass}>{"Game designer and animator"}</p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
             An award-winning puzzle adventure where a group of small wandering
             beings travel through a vast world — controlled not by directing the
@@ -84,23 +114,28 @@ const WorkDetails = () => {
             and exhibited at GamesCOM in Cologne.
           </p>
           <ImageGallery
-            images={[
-              { src: "/assets/walkabout1.jpg", alt: "Walkabout screenshot 1" },
-              { src: "/assets/walkabout2.jpg", alt: "Walkabout screenshot 2" },
-              { src: "/assets/walkabout3.jpg", alt: "Walkabout screenshot 3" },
-              { src: "/assets/walkabout4.jpg", alt: "Walkabout screenshot 4" },
-              { src: "/assets/walkabout5.jpg", alt: "Walkabout screenshot 5" },
+            media={[
+              { type: "image", src: "/assets/walkabout1.jpg", alt: "Walkabout screenshot 1" },
+              { type: "image", src: "/assets/walkabout2.jpg", alt: "Walkabout screenshot 2" },
+              { type: "image", src: "/assets/walkabout3.jpg", alt: "Walkabout screenshot 3" },
+              { type: "image", src: "/assets/walkabout4.jpg", alt: "Walkabout screenshot 4" },
+              { type: "image", src: "/assets/walkabout5.jpg", alt: "Walkabout screenshot 5" },
+              {
+                type: "video",
+                src: "https://www.youtube.com/embed/26bY3s-x3D8",
+                alt: "Walkabout trailer",
+              },
             ]}
           />
           <p>
-            The game can be tested on the official site:{" "}
+            Read more about the game here:{" "}
             <a
               className="text-accent"
-              href="https://www.thunderkick.com/games/3-wildos/"
+              href="https://game.speldesign.uu.se/projects/arcade-games/walkabout/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Thunderkick
+              Walkabout
             </a>
           </p>
         </ItemLayout>
@@ -109,9 +144,12 @@ const WorkDetails = () => {
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Midnight
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Midnight
+            </h2>
+            <p className={roleMetaClass}>{"Game designer and animator"}</p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
             A three-player real-time strategy game built around rock-paper-scissors
             — Rocks, Papers and Scissors as living factions in a nocturnal world,
@@ -120,24 +158,29 @@ const WorkDetails = () => {
             Presentation at Gotland Game Awards 2010.
           </p>
           <ImageGallery
-            images={[
-              { src: "/assets/rock.jpg", alt: "Midnight — Rocks faction" },
-              { src: "/assets/paper.jpg", alt: "Midnight — Papers faction" },
-              { src: "/assets/scissor.jpg", alt: "Midnight — Scissors faction" },
-              { src: "/assets/midnight1.jpg", alt: "Midnight screenshot 1" },
-              { src: "/assets/midnight2.jpg", alt: "Midnight screenshot 2" },
-              { src: "/assets/midnight3.jpg", alt: "Midnight screenshot 3" },
+            media={[
+              { type: "image", src: "/assets/rock.jpg", alt: "Midnight — Rocks faction" },
+              { type: "image", src: "/assets/paper.jpg", alt: "Midnight — Papers faction" },
+              { type: "image", src: "/assets/scissor.jpg", alt: "Midnight — Scissors faction" },
+              { type: "image", src: "/assets/midnight1.jpg", alt: "Midnight screenshot 1" },
+              { type: "image", src: "/assets/midnight2.jpg", alt: "Midnight screenshot 2" },
+              { type: "image", src: "/assets/midnight3.jpg", alt: "Midnight screenshot 3" },
+              {
+                type: "video",
+                src: "https://www.youtube.com/embed/MlRK4PRoHm8?si=medFJv173-Z9Phf1",
+                alt: "Midnight trailer",
+              },
             ]}
           />
           <p>
-            The game can be tested on the official site:{" "}
+            Read more about the game here:{" "}
             <a
               className="text-accent"
-              href="https://www.thunderkick.com/games/3-wildos/"
+              href="https://game.speldesign.uu.se/projects/3d-games/midnight/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Thunderkick
+              Midnight
             </a>
           </p>
         </ItemLayout>
@@ -146,9 +189,12 @@ const WorkDetails = () => {
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Adventure League
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Adventure League
+            </h2>
+            <p className={roleMetaClass}>{"Animator"}</p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
             A four-player co-op game where players explore ancient ruins, solve
             traps and puzzles that require the whole group to cooperate — without
@@ -156,7 +202,7 @@ const WorkDetails = () => {
             Game Conference 2011.
           </p>
           <ImageGallery
-            images={[
+            media={[
               {
                 src: "/assets/adventure1.jpg",
                 alt: "Adventure League screenshot 1",
@@ -176,14 +222,14 @@ const WorkDetails = () => {
             ]}
           />
           <p>
-            The game can be tested on the official site:{" "}
+            Read more about the game here:{" "}
             <a
               className="text-accent"
-              href="https://www.thunderkick.com/games/3-wildos/"
+              href="https://game.speldesign.uu.se/projects/3d-games/adventure-league/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Thunderkick
+              Adventure League
             </a>
           </p>
         </ItemLayout>
@@ -192,46 +238,73 @@ const WorkDetails = () => {
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Uppsala University
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Uppsala University
+            </h2>
+            <p className={roleMetaClass}>{"Grafic design | 2017-2019"}</p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
-            {"I was hired as a graphic designer and made graphics and videos for the game development department and the Gotland Game Conference. This included graphics for the website as well as printed materials like roll ups, pamphlets, lanyards and posters."}
+            {"I was hired as a graphic designer mainly during 2017-2019 and made graphics and videos for the game development department and the Gotland Game Conference. This included graphics for the website, presskit, presentations and social media as well as printed materials like roll ups, pamphlets, lanyards, event badges, tickets, notebooks, t-shirts and posters. I also made videos for big screens, commercials and presentations."}
           </p>
           <ImageGallery
-            images={[
-              {
-                src: "/assets/3wildos.png",
-                alt: "3 Wildos screenshot",
-              },
+            media={[
+              { type: "image", src: "/assets/ggc1.png", alt: "GGC 1" },
+              { type: "image", src: "/assets/ggc3.png", alt: "GGC 3" },
+              { type: "image", src: "/assets/ggc4.jpg", alt: "GGC 4" },
+              { type: "image", src: "/assets/ggc8.png", alt: "GGC 8" },
+              { type: "image", src: "/assets/ggc9.png", alt: "GGC 9" },
+              { type: "image", src: "/assets/ggc10.png", alt: "GGC 10" },
+              { type: "image", src: "/assets/ggc11.jpg", alt: "GGC 10" },
+              { type: "image", src: "/assets/ggc12.jpg", alt: "GGC 12" },
+              { type: "image", src: "/assets/ggc14.png", alt: "GGC 14" },
+              { type: "image", src: "/assets/ggc15.jpg", alt: "GGC 15" },
+              { type: "image", src: "/assets/ggc16.jpg", alt: "GGC 16" },
+              { type: "image", src: "/assets/ggc16.png", alt: "GGC 17" },
+              { type: "image", src: "/assets/ggc18.png", alt: "GGC 18" },
+              { type: "image", src: "/assets/ggc19.png", alt: "GGC 19" },
+              { type: "image", src: "/assets/ggc20.jpg", alt: "GGC 20" },
+              { type: "image", src: "/assets/ggc21.jpg", alt: "GGC 21" },
+              { type: "image", src: "/assets/ggc22.png", alt: "GGC 22" },
+              { type: "image", src: "/assets/ggc23.png", alt: "GGC 23" },
+              { type: "image", src: "/assets/ggc24.png", alt: "GGC 24" },
+
             ]}
           />
-          <p>
-            Images and videos to come.
-          </p>
         </ItemLayout>
         <ItemLayout
           className={
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
-            Swedish Game Awards
-          </h2>
+          <div className="space-y-1 w-full">
+            <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
+              Swedish Game Awards
+            </h2>
+            <p className={roleMetaClass}>{"Video editor | 2017"}</p>
+          </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
-            {"I was hired as a video editor for the Swedish Game Awards."}
+            {"I was hired as a video editor for the Swedish Game Awards and made videos for the award cermony as well as commercials and social media content."}
           </p>
           <ImageGallery
-            images={[
+            media={[
               {
-                src: "/assets/3wildos.png",
-                alt: "3 Wildos screenshot",
+                type: "video",
+                src: "https://www.youtube.com/embed/4UCneRogets",
+                alt: "Walkabout trailer",
+              },
+              {
+                type: "video",
+                src: "https://www.youtube.com/embed/K26L_iMgJfk",
+                alt: "Walkabout trailer",
+              },
+              {
+                type: "video",
+                src: "https://www.youtube.com/embed/lokSsrZBFoI",
+                alt: "Walkabout trailer",
               },
             ]}
           />
-          <p>
-            Videos to come.
-          </p>
         </ItemLayout>
       </div>
     </section>

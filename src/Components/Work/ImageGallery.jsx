@@ -1,23 +1,57 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 
-const ImageGallery = ({ images, className = "" }) => {
+const getYoutubeVideoId = (src) => {
+  const embedMatch = src.match(/youtube\.com\/embed\/([^?&/]+)/);
+  if (embedMatch) return embedMatch[1];
+
+  const watchMatch = src.match(/[?&]v=([^&]+)/);
+  if (watchMatch) return watchMatch[1];
+
+  const shortMatch = src.match(/youtu\.be\/([^?&/]+)/);
+  if (shortMatch) return shortMatch[1];
+
+  return null;
+};
+
+const getYoutubeThumbnail = (src) => {
+  const id = getYoutubeVideoId(src);
+  return id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : null;
+};
+
+const withAutoplay = (src) => {
+  const separator = src.includes("?") ? "&" : "?";
+  return `${src}${separator}autoplay=1`;
+};
+
+const normalizeMedia = (media, images) => {
+  const raw = media?.length
+    ? media
+    : images?.length
+      ? images
+      : [];
+
+  return raw.map((item) => ({ ...item, type: item.type ?? "image" }));
+};
+
+const ImageGallery = ({ media, images, className = "" }) => {
+  const items = useMemo(() => normalizeMedia(media, images), [media, images]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const isOpen = selectedIndex !== null;
 
   const close = useCallback(() => setSelectedIndex(null), []);
 
   const goPrev = useCallback(() => {
-    setSelectedIndex((i) => (i === 0 ? images.length - 1 : i - 1));
-  }, [images.length]);
+    setSelectedIndex((i) => (i === 0 ? items.length - 1 : i - 1));
+  }, [items.length]);
 
   const goNext = useCallback(() => {
-    setSelectedIndex((i) => (i === images.length - 1 ? 0 : i + 1));
-  }, [images.length]);
+    setSelectedIndex((i) => (i === items.length - 1 ? 0 : i + 1));
+  }, [items.length]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -37,30 +71,50 @@ const ImageGallery = ({ images, className = "" }) => {
     };
   }, [isOpen, close, goPrev, goNext]);
 
-  if (!images?.length) return null;
+  if (!items.length) return null;
 
-  const selected = isOpen ? images[selectedIndex] : null;
+  const selected = isOpen ? items[selectedIndex] : null;
 
   return (
     <>
       <div
         className={`grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 w-full mt-4 ${className}`}
       >
-        {images.map((image, index) => (
+        {items.map((item, index) => (
           <button
-            key={`${image.src}-${index}`}
+            key={`${item.type}-${item.src}-${index}`}
             type="button"
             onClick={() => setSelectedIndex(index)}
             className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-accent/30 hover:border-accent/60 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            aria-label={`View ${image.alt}`}
+            aria-label={`View ${item.alt}`}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes="(max-width: 640px) 50vw, 200px"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+            {item.type === "video" ? (
+              <>
+                {(item.thumbnail ?? getYoutubeThumbnail(item.src)) ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- external YouTube thumbnails
+                  <img
+                    src={item.thumbnail ?? getYoutubeThumbnail(item.src)}
+                    alt={item.alt}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-background/60" aria-hidden />
+                )}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-black/60 rounded-full p-3">
+                    <Play size={24} className="text-white fill-white" />
+                  </div>
+                </div>
+              </>
+            ) : (
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 640px) 50vw, 200px"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            )}
           </button>
         ))}
       </div>
@@ -87,7 +141,7 @@ const ImageGallery = ({ images, className = "" }) => {
               <X size={24} />
             </button>
 
-            {images.length > 1 && (
+            {items.length > 1 && (
               <>
                 <button
                   type="button"
@@ -96,7 +150,7 @@ const ImageGallery = ({ images, className = "" }) => {
                     goPrev();
                   }}
                   className="absolute left-2 sm:left-6 z-10 p-2 rounded-full border border-accent/30 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
-                  aria-label="Previous image"
+                  aria-label="Previous item"
                 >
                   <ChevronLeft size={28} />
                 </button>
@@ -107,7 +161,7 @@ const ImageGallery = ({ images, className = "" }) => {
                     goNext();
                   }}
                   className="absolute right-2 sm:right-6 z-10 p-2 rounded-full border border-accent/30 text-foreground hover:border-accent/60 hover:text-accent transition-colors"
-                  aria-label="Next image"
+                  aria-label="Next item"
                 >
                   <ChevronRight size={28} />
                 </button>
@@ -122,19 +176,29 @@ const ImageGallery = ({ images, className = "" }) => {
               className="relative max-w-[min(100%,1200px)] max-h-[85vh] w-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src={selected.src}
-                alt={selected.alt}
-                width={1200}
-                height={800}
-                className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-lg"
-                priority
-              />
+              {selected.type === "video" ? (
+                <iframe
+                  src={withAutoplay(selected.src)}
+                  title={selected.alt}
+                  className="w-full aspect-video max-h-[85vh] rounded-lg"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <Image
+                  src={selected.src}
+                  alt={selected.alt}
+                  width={1200}
+                  height={800}
+                  className="w-auto h-auto max-w-full max-h-[85vh] object-contain rounded-lg"
+                  priority
+                />
+              )}
             </motion.div>
 
-            {images.length > 1 && (
+            {items.length > 1 && (
               <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-muted font-light">
-                {selectedIndex + 1} / {images.length}
+                {selectedIndex + 1} / {items.length}
               </p>
             )}
           </motion.div>
