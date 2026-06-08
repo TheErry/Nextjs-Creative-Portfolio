@@ -247,7 +247,7 @@ const WorkDetails = () => {
             <h2 className="text-xl md:text-2xl text-left w-full capitalize text-accent">
               Uppsala University
             </h2>
-            <p className={roleMetaClass}>{"Grafic design | 2017-2019"}</p>
+            <p className={roleMetaClass}>{"Graphic designer | 2017-2019"}</p>
           </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
             {"I was hired as a graphic designer mainly during 2017-2019 and made graphics and videos for the game development department and the Gotland Game Conference. This included graphics for the website, presskit, presentations and social media as well as printed materials like roll ups, pamphlets, lanyards, event badges, tickets, notebooks, t-shirts and posters. I also made videos for big screens, commercials and presentations."}
@@ -255,21 +255,15 @@ const WorkDetails = () => {
           <ImageGallery
             media={[
               { type: "image", src: "/assets/ggc1.png", alt: "GGC 1" },
-              { type: "image", src: "/assets/ggc3.png", alt: "GGC 3" },
               { type: "image", src: "/assets/ggc4.jpg", alt: "GGC 4" },
               { type: "image", src: "/assets/ggc8.png", alt: "GGC 8" },
-              { type: "image", src: "/assets/ggc9.png", alt: "GGC 9" },
               { type: "image", src: "/assets/ggc10.png", alt: "GGC 10" },
               { type: "image", src: "/assets/ggc11.jpg", alt: "GGC 10" },
               { type: "image", src: "/assets/ggc12.jpg", alt: "GGC 12" },
-              { type: "image", src: "/assets/ggc14.png", alt: "GGC 14" },
-              { type: "image", src: "/assets/ggc15.jpg", alt: "GGC 15" },
               { type: "image", src: "/assets/ggc16.jpg", alt: "GGC 16" },
               { type: "image", src: "/assets/ggc16.png", alt: "GGC 17" },
-              { type: "image", src: "/assets/ggc18.png", alt: "GGC 18" },
               { type: "image", src: "/assets/ggc19.png", alt: "GGC 19" },
               { type: "image", src: "/assets/ggc20.jpg", alt: "GGC 20" },
-              { type: "image", src: "/assets/ggc21.jpg", alt: "GGC 21" },
               { type: "image", src: "/assets/ggc22.png", alt: "GGC 22" },
               { type: "image", src: "/assets/ggc23.png", alt: "GGC 23" },
               { type: "image", src: "/assets/ggc24.png", alt: "GGC 24" },
@@ -294,24 +288,24 @@ const WorkDetails = () => {
             <p className={roleMetaClass}>{"Video editor | 2017"}</p>
           </div>
           <p className="font-light text-xs sm:text-sm md:text-base">
-            {"I was hired as a video editor for the Swedish Game Awards and made videos for the award cermony as well as commercials and social media content."}
+            {"I was hired as a video editor for the Swedish Game Awards and created ceremony videos, sponsor presentations and social media content for the 2017 awards."}
           </p>
           <ImageGallery
             media={[
               {
                 type: "video",
                 src: "https://www.youtube.com/embed/4UCneRogets",
-                alt: "Walkabout trailer",
+                alt: "SGA Best Art 2017",
               },
               {
                 type: "video",
                 src: "https://www.youtube.com/embed/K26L_iMgJfk",
-                alt: "Walkabout trailer",
+                alt: "SGA Best Narrative 2017",
               },
               {
                 type: "video",
                 src: "https://www.youtube.com/embed/lokSsrZBFoI",
-                alt: "Walkabout trailer",
+                alt: "SGA Best Game 2017",
               },
             ]}
           />
