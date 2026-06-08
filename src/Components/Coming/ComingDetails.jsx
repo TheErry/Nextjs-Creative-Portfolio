@@ -175,6 +175,16 @@ const ComingDetails = () => {
             </p>
             </div>
           </ItemLayout>
+          <p className="text-sm sm:text-base md:text-lg">For more illustrations and graphic design work, check out my Artstation page:{" "}
+          <a
+              className="text-accent"
+              href="https://www.artstation.com/grimmulv"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Artstation
+            </a>
+          </p>
         </div>
       </section>
     </>

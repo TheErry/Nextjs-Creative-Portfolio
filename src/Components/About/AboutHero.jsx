@@ -23,7 +23,7 @@ const AboutHero = () => {
         className="flex flex-col items-center justify-center text-center px-2 sm:px-4"
       >
         <h1 className="font-bold text-6xl text-accent xs:text-7xl sm:text-8xl lg:text-9xl">
-          Erika A. Porath
+          Erika R. Porath
         </h1>
         <p className="font-light text-foreground text-xl md:text-4xl">
           Game developer, animator, artist, and storyteller
