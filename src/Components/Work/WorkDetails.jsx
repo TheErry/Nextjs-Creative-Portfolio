@@ -268,6 +268,11 @@ const WorkDetails = () => {
               { type: "image", src: "/assets/ggc22.png", alt: "GGC 22" },
               { type: "image", src: "/assets/ggc23.png", alt: "GGC 23" },
               { type: "image", src: "/assets/ggc24.png", alt: "GGC 24" },
+              {
+                type: "video",
+                src: "https://www.youtube.com/embed/CNIc5GpFTjw",
+                alt: "Svenska Spel trailer",
+              },
 
             ]}
           />
