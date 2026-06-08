@@ -163,7 +163,7 @@ const ComingDetails = () => {
               {"Dear Deer"}
             </p>
             <p className="font-light text-xs sm:text-sm md:text-base">
-              {"A deer simulator where you live your life as a deer, facing the challanges of nature and humans while trying to live your life in peace. Live your life in the best way you can while nature does what it always do. Similar feeling to Firewatch, but you're a deer."}
+              {"Dear Deer is a deer simulator where you live your life in the forest, facing the challenges of nature and the ever-present threat of humans. Progress through the seasons, meet other deer along the way to make a pack, and try to live your best deer life, however long that lasts. Dear Deer is a deer simulator with the contemplative atmosphere of Firewatch, but as a deer."}
             </p>
             </div>
             <div>
@@ -171,7 +171,7 @@ const ComingDetails = () => {
               {"Roaches"}
             </p>
             <p className="font-light text-xs sm:text-sm md:text-base">
-              {"Have you ever wondered what it would be like to be a roach? No? Perhaps you should. Gather your roach friends around the house and throw your best roach party while the environment quietly tells the real story."}
+              {"Have you ever wondered what it would be like to be a roach? No? Perhaps you should. The house is yours. Explore every room, gather your roach companions and throw the best roach party the walls have ever seen, while the environment quietly tells the real story. Just a fun roach adventure, mostly."}
             </p>
             </div>
           </ItemLayout>
